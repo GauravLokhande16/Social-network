@@ -1,5 +1,19 @@
+@import "../../style.scss";
+
 .leftBar{
+    @include themify($themes){
     flex: 2;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px) ;
+    overflow: scroll;
+    background-color: themed("bg");
+    color: themed("textColor");
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    
     .container{
         padding: 20px;
 
@@ -7,12 +21,16 @@
             margin: 20px 0;
             border: none;
             height: 0.5px;
-            background-color: lightgray;
+            background-color: themed("color");
         }
         .menu{
             display: flex;
             flex-direction: column;
             gap: 20px;
+
+            span{
+                font-size: 12px;
+            }
 
             .user{
                 display: flex;
@@ -50,4 +68,5 @@
             }
         }
     }
+}
 }
